@@ -1,46 +1,83 @@
-RIFT VAULT — Stock de cartas de Riftbound
-==========================================
+<div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=160&section=header&text=RIFT%20VAULT&fontSize=48&fontColor=6ec6ff&fontAlignY=40&desc=Your%20Riftbound%20Card%20Stock%2C%20Organized&descAlignY=62&descSize=17&descColor=8fd3ff&animation=fadeIn" width="100%"/>
 
-Requisito: tener Node.js instalado (cualquier versión reciente).
-Puedes comprobarlo abriendo una terminal y escribiendo: node -v
-Si no lo tienes, descárgalo gratis en https://nodejs.org (elige la versión "LTS").
 
-CÓMO ARRANCAR LA APP
----------------------
-1. Abre una terminal (o símbolo del sistema) en esta carpeta (la que contiene
-   este archivo, server.js y la carpeta public/).
+*Browse, sort, and manage your Riftbound card collection right from your browser.*
 
-2. Ejecuta:
+<br/>
 
-       node server.js
+![Node.js](https://img.shields.io/badge/Node.js-Required-1e3a5f?style=for-the-badge&logo=node.js&logoColor=6ec6ff)
+![Status](https://img.shields.io/badge/Status-Early%20Build-1e3a5f?style=for-the-badge&logo=riot-games&logoColor=6ec6ff)
+![Data](https://img.shields.io/badge/Data-riftscribe.gg-1e3a5f?style=for-the-badge&logo=databricks&logoColor=6ec6ff)
 
-3. Verás un mensaje como:
+</div>
 
-       Rift Vault corriendo en http://localhost:3000
+---
 
-4. Abre esa dirección (http://localhost:3000) en tu navegador.
+## 🔷 About
 
-5. Para detener la app, vuelve a la terminal y pulsa Ctrl+C.
+**Rift Folio** is a local app for tracking your *Riftbound* card stock. It runs on a small Node.js server that acts as a bridge to the card API from [riftscribe.gg](https://riftscribe.gg).
 
-Cada vez que quieras volver a usar la app, repite los pasos 1-4.
+---
 
-POR QUÉ HACE FALTA UN SERVIDOR
--------------------------------
-La API de cartas (riftscribe.gg) no permite que un navegador la consulte
-directamente por motivos de seguridad (CORS). server.js hace de intermediario:
-tu navegador le pide los datos a tu propio servidor local, y es ese servidor
-—no el navegador— quien contacta con riftscribe.gg. Así se evita el bloqueo
-por completo y no dependemos de proxies gratuitos de terceros, que son poco
-fiables.
+## 👥 Collaborators
 
-DÓNDE SE GUARDA TU COLECCIÓN Y TUS MAZOS
-------------------------------------------
-Todo se guarda en el propio navegador (localStorage), en tu ordenador. No se
-envía a ningún servidor externo. Si abres la app en otro navegador o la
-borras del historial/datos del sitio, no verás la misma colección: es un
-almacenamiento local por navegador, no una cuenta en la nube.
+| | Name | GitHub |
+|---|---|---|
+| 👩‍💻 | Clara Fernández Pérez | [@megu-hub](https://github.com/megu-hub) |
+| 👨‍💻 | Sergio Fernández-Miranda Longo | [@clubserg](https://github.com/clubserg) |
 
-ESTRUCTURA DE ARCHIVOS
-------------------------
-server.js         -> el servidor local (sin dependencias que instalar)
-public/index.html -> toda la app (interfaz + lógica)
+---
+
+## 🗃️ File Structure
+
+> *Note: this is an early, minimal version — the structure will evolve. Still missing: a database, auth/security, and the UI will move from plain HTML to React.*
+
+```
+rift-folio/
+├── server.js         🔹 Local server
+└── public/
+    └── index.html    🔹 Full app (UI + logic)
+```
+
+---
+
+## 📘 Requirements
+
+| Requirement | Detail |
+|---|---|
+| 🔵 **Node.js** | Any recent version |
+
+Check whether you already have it installed by opening a terminal and running:
+
+```bash
+node -v
+```
+
+If no version number shows up, download it for free from [nodejs.org](https://nodejs.org) (choose the **LTS** version).
+
+---
+
+## 🚀 Getting Started
+
+1. Open a terminal (or command prompt) in this folder — the one containing `server.js` and the `public/` folder.
+2. Run:
+   ```bash
+   node server.js
+   ```
+3. You should see a message like:
+   ```
+   Rift Vault running at http://localhost:3000
+   ```
+4. Open that address in your browser: **http://localhost:3000**
+5. To stop the app, go back to the terminal and press `Ctrl+C`.
+
+> 🔁 Every time you want to use the app again, just repeat steps 1–4.
+
+---
+
+<div align="center">
+
+*Made with 💙 by Clubserg & Megu*
+
+</div>
