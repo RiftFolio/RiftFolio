@@ -7,8 +7,9 @@
 <br/>
 
 ![Node.js](https://img.shields.io/badge/Node.js-Required-1e3a5f?style=for-the-badge&logo=node.js&logoColor=6ec6ff)
+![React](https://img.shields.io/badge/React-18-1e3a5f?style=for-the-badge&logo=react&logoColor=6ec6ff)
 ![Status](https://img.shields.io/badge/Status-Early%20Build-1e3a5f?style=for-the-badge&logo=riot-games&logoColor=6ec6ff)
-![Data](https://img.shields.io/badge/Data-riftscribe.gg-1e3a5f?style=for-the-badge&logo=databricks&logoColor=6ec6ff)
+![Data](https://img.shields.io/badge/Data-riftcodex.com-1e3a5f?style=for-the-badge&logo=databricks&logoColor=6ec6ff)
 
 </div>
 
@@ -16,7 +17,7 @@
 
 ## 🔷 About
 
-**Rift Folio** is a local app for tracking your *Riftbound* card stock. It runs on a small Node.js server that acts as a bridge to the card API from [riftscribe.gg](https://riftscribe.gg).
+**Rift Folio** is a local app for tracking your *Riftbound* card stock. It's built with React and TypeScript, and pulls card data straight from the public [RiftCodex](https://api.riftcodex.com) API.
 
 ---
 
@@ -31,13 +32,23 @@
 
 ## 🗃️ File Structure
 
-> *Note: this is an early, minimal version — the structure will evolve. Still missing: a database, auth/security, and the UI will move from plain HTML to React.*
+> *Note: this is an early, minimal version — the structure will evolve. Still missing: a database and auth/security.*
 
 ```
 rift-folio/
-├── server.js         🔹 Local server
-└── public/
-    └── index.html    🔹 Full app (UI + logic)
+├── index.html          🔹 Vite entry point
+├── package.json
+├── vite.config.ts
+├── tsconfig.json
+└── src/
+    ├── types/          🔹 Card, Stock, Deck types
+    ├── services/       🔹 RiftCodex API calls
+    ├── hooks/          🔹 useStock and useDecks (state + localStorage)
+    ├── components/     🔹 Reusable pieces (CardTile, StockTile)
+    ├── views/          🔹 Screens (search, collection, decks)
+    ├── App.tsx         🔹 Layout and navigation between views
+    ├── main.tsx        🔹 React entry point
+    └── styles.css
 ```
 
 ---
@@ -60,19 +71,30 @@ If no version number shows up, download it for free from [nodejs.org](https://no
 
 ## 🚀 Getting Started
 
-1. Open a terminal (or command prompt) in this folder — the one containing `server.js` and the `public/` folder.
-2. Run:
+1. Open a terminal (or command prompt) in this folder — the one containing `package.json`.
+2. Install the dependencies:
    ```bash
-   node server.js
+   npm install
    ```
-3. You should see a message like:
+3. Start the app:
+   ```bash
+   npm run dev
    ```
-   Rift Vault running at http://localhost:3000
+4. You should see a message like:
    ```
-4. Open that address in your browser: **http://localhost:3000**
-5. To stop the app, go back to the terminal and press `Ctrl+C`.
+   ➜  Local:   http://localhost:5173/
+   ```
+5. Open that address in your browser.
+6. To stop the app, go back to the terminal and press `Ctrl+C`.
 
-> 🔁 Every time you want to use the app again, just repeat steps 1–4.
+> 🔁 Every time you want to use the app again, just repeat steps 3–5.
+
+### Building for production
+
+```bash
+npm run build
+npm run preview
+```
 
 ---
 
