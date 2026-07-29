@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=160&section=header&text=RIFT%20VAULT&fontSize=48&fontColor=6ec6ff&fontAlignY=40&desc=Your%20Riftbound%20Card%20Stock%2C%20Organized&descAlignY=62&descSize=17&descColor=8fd3ff&animation=fadeIn" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=160&section=header&text=RIFTFOLIO&fontSize=48&fontColor=6ec6ff&fontAlignY=40&desc=Your%20Riftbound%20Card%20Stock%2C%20Organized&descAlignY=62&descSize=17&descColor=8fd3ff&animation=fadeIn" width="100%"/>
 
 
 *Browse, sort, and manage your Riftbound card collection right from your browser.*
