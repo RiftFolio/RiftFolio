@@ -7,7 +7,6 @@
 <br/>
 
 ![Node.js](https://img.shields.io/badge/Node.js-Required-1e3a5f?style=for-the-badge&logo=node.js&logoColor=6ec6ff)
-![Status](https://img.shields.io/badge/Status-Early%20Build-1e3a5f?style=for-the-badge&logo=riot-games&logoColor=6ec6ff)
 ![Data](https://img.shields.io/badge/Data-riftscribe.gg-1e3a5f?style=for-the-badge&logo=databricks&logoColor=6ec6ff)
 
 </div>
