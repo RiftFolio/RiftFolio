@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Card } from "../types/card";
 import { getCardsByName, getCardsBySet } from "../services/riftcodexService";
-import { domainRank } from "../utils/faction";
 import CardTile from "../components/CardTile";
 
 const SET_ORDER = ["OGN", "SFD", "UNL", "VEN"];
@@ -13,13 +12,7 @@ interface CardSearchViewProps {
   getStockQty: (cardId: string) => number;
 }
 
-function sortByDomain(list: Card[]): Card[] {
-  return [...list].sort((a, b) => {
-    const domainA = domainRank(a.classification.domain[0] || "");
-    const domainB = domainRank(b.classification.domain[0] || "");
-    return domainA - domainB;
-  });
-}
+
 
 function CardSearchView({ onAddToStock, onRemoveFromStock, getStockQty }: CardSearchViewProps) {
   const [query, setQuery] = useState("");
@@ -39,7 +32,7 @@ function CardSearchView({ onAddToStock, onRemoveFromStock, getStockQty }: CardSe
     try {
       const setId = SET_ORDER[nextSetIndex];
       const data = await getCardsBySet(setId, nextPage, PAGE_SIZE);
-      setCards(sortByDomain(data.items));
+      setCards(data.items);
       setTotalPages(data.pages);
       setSetIndex(nextSetIndex);
       setPage(nextPage);
@@ -57,7 +50,7 @@ function CardSearchView({ onAddToStock, onRemoveFromStock, getStockQty }: CardSe
 
     try {
       const data = await getCardsByName(value);
-      setCards(sortByDomain(data));
+      setCards(data);
     } catch (err) {
       setCards([]);
       setError("No se pudo conectar con la API de RiftCodex");

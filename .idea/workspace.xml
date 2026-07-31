@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="18d758e7-487b-49cb-bd4f-a76d5fbe7320" name="Changes" comment="testing api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CardTile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardTile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/StockTile.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/riftcodexService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/riftcodexService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/faction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/faction.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/CardSearchView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CardSearchView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/CollectionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CollectionView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
