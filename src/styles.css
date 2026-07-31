@@ -1,5 +1,5 @@
 :root{
-    /* Tema por defecto: Hextech Arcane (oscuro, insignia de la app) */
+
     --bg: #0a0c1a;
     --bg-alt: #101324;
     --panel: #151830;
@@ -39,7 +39,7 @@ body{
     min-height:100vh;
     transition:background-color .3s ease, color .3s ease;
 }
-/* Retícula hextech de fondo: sugiere circuitería/ingeniería arcana, muy sutil */
+
 body::before{
     content:'';
     position:fixed; inset:0; z-index:0; pointer-events:none;
@@ -55,7 +55,7 @@ body::before{
 h1,h2,h3,.brand{ font-family:'Marcellus',serif; letter-spacing:.015em; font-weight:600; }
 .mono, .num, .qty-badge, .rmeta, .dmeta{ font-family:'JetBrains Mono',ui-monospace,monospace; }
 
-/* ============ SIDEBAR ============ */
+
 .sidebar{
     width:230px; flex-shrink:0;
     background:var(--bg-alt);
@@ -80,7 +80,7 @@ h1,h2,h3,.brand{ font-family:'Marcellus',serif; letter-spacing:.015em; font-weig
 .brand span{ font-size:18px; font-weight:600; color:var(--gold); }
 .brand small{ display:block; font-family:'Inter'; font-size:9.5px; color:var(--text-dim); letter-spacing:.16em; text-transform:uppercase; margin-top:2px; }
 
-/* ============ NAV ============ */
+
 nav{ display:flex; flex-direction:column; gap:4px; }
 nav button{
     all:unset; cursor:pointer;
@@ -102,13 +102,13 @@ nav button:focus-visible, .btn:focus-visible, .chip:focus-visible, input:focus-v
 
 .data-actions{ display:flex; flex-direction:column; gap:6px; padding:0 8px; }
 
-/* ============ MAIN / VIEW HEADER ============ */
+
 main{ flex:1; padding:30px 36px 60px; max-width:1200px; position:relative; z-index:1; }
 .view-title{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:22px; flex-wrap:wrap; }
 .view-title h1{ font-size:27px; margin:0; color:var(--text); }
 .view-title p{ margin:5px 0 0; color:var(--text-dim); font-size:13.5px; font-family:'Inter'; }
 
-/* ============ SEARCH BAR ============ */
+
 .search-bar{ position:relative; margin-bottom:22px; }
 .search-bar input{
     width:100%; padding:14px 16px 14px 44px; border-radius:10px;
@@ -128,23 +128,50 @@ main{ flex:1; padding:30px 36px 60px; max-width:1200px; position:relative; z-ind
 .chip:hover{ border-color:var(--gold-dim); color:var(--text); }
 .chip.active{ background:var(--panel-2); border-color:var(--gold-dim); color:var(--gold); box-shadow:0 0 10px color-mix(in srgb, var(--gold) 25%, transparent); }
 
-/* ============ CARD GRID / TILE (con brillo tipo holo al pasar el ratón) ============ */
+
 .card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(168px,1fr)); gap:16px; }
 .card-tile{
     position:relative;
     background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
-    overflow:hidden; display:flex; flex-direction:column;
+    overflow:visible; display:flex; flex-direction:column;
+    cursor:pointer;
     transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     animation:fadeInUp .38s ease backwards;
 }
-.card-tile:hover{ transform:translateY(-4px); border-color:var(--gold-dim); box-shadow:0 10px 28px color-mix(in srgb, var(--gold) 22%, transparent), 0 0 0 1px color-mix(in srgb, var(--teal) 25%, transparent); }
-.card-tile .thumb{
+.card-tile.disabled{ cursor:not-allowed; opacity:.6; }
+.card-main{
+    position:relative;
+    display:flex; flex-direction:column; height:100%;
+    border-radius:var(--radius); overflow:hidden;
+}
+.add-plus{
+    position:absolute; top:0; left:0; width:100%; aspect-ratio:5/7;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Marcellus',serif; font-size:42px; font-weight:600; color:var(--gold);
+    text-shadow:0 0 18px color-mix(in srgb, var(--gold) 60%, transparent), 0 2px 6px rgba(0,0,0,.6);
+    opacity:0; transform:scale(.7); pointer-events:none;
+    transition:opacity .18s ease, transform .18s ease;
+    z-index:10;
+}
+.card-tile:hover .add-plus{ opacity:1; transform:scale(1); }
+
+.card-zoom-preview{
+    position:absolute; bottom:0; left:calc(100% + 14px); width:330px;
+    pointer-events:none; opacity:0; transform:translateX(-8px) scale(.97);
+    transition:opacity .18s ease, transform .18s ease;
+    z-index:30; border-radius:var(--radius); overflow:hidden;
+    box-shadow:0 18px 40px rgba(0,0,0,.5), 0 0 0 1px var(--gold-dim);
+}
+.card-zoom-preview img{ display:block; width:100%; height:auto; }
+.card-tile:hover .card-zoom-preview{ opacity:1; transform:translateX(0) scale(1); }
+.card-tile:hover{ transform:translateY(-4px); border-color:var(--gold-dim); box-shadow:0 10px 28px color-mix(in srgb, var(--gold) 22%, transparent), 0 0 0 1px color-mix(in srgb, var(--teal) 25%, transparent); z-index:40; }.card-tile .thumb{
     aspect-ratio:5/7; background:var(--bg-alt); display:flex; align-items:center; justify-content:center;
-    overflow:hidden; position:relative;
+    overflow:hidden; position:relative;transition:filter .22s ease;
 }
 .card-tile .thumb img{ width:100%; height:100%; object-fit:cover; }
 .card-tile .thumb .noimg{ font-family:'Marcellus'; color:var(--text-dim); font-size:11px; text-align:center; padding:10px; }
-/* brillo diagonal tipo carta holográfica */
+.card-tile:hover .thumb{ filter:blur(4px); }
+
 .card-tile .thumb::after{
     content:'';
     position:absolute; inset:0;
@@ -156,17 +183,23 @@ main{ flex:1; padding:30px 36px 60px; max-width:1200px; position:relative; z-ind
 }
 .card-tile:hover .thumb::after{ transform:translateX(120%); }
 .qty-badge{
-    position:absolute; top:6px; right:6px; background:rgba(8,8,16,.82);
-    border:1px solid rgba(255,255,255,.22); color:#fdfaff; font-size:11.5px; font-weight:700;
-    border-radius:999px; padding:2px 8px; animation:floatBadge 2.2s ease-in-out infinite;
+    position:absolute; top:6px; right:6px; z-index:20;
+    background:rgba(8,8,16,.82); border:1px solid rgba(255,255,255,.22); color:#fdfaff;
+    font-size:13.5px; font-weight:700; border-radius:999px; padding:4px 10px;
+    display:flex; align-items:center; gap:7px; animation:floatBadge 2.2s ease-in-out infinite;
 }
+.qty-badge button{
+    all:unset; cursor:pointer; line-height:1; padding:0 3px; color:#fdfaff;
+    font-weight:900; font-size:16px;
+}
+.qty-badge button:hover{ color:var(--danger); }
 .card-tile .info{ padding:9px 10px 11px; display:flex; flex-direction:column; gap:5px; flex:1; }
 .card-tile .name{ font-size:12.5px; font-weight:700; line-height:1.25; font-family:'Inter'; }
 .card-tile .meta{ display:flex; align-items:center; justify-content:space-between; font-size:10.5px; color:var(--text-dim); }
 .color-dot{ width:9px; height:9px; border-radius:50%; display:inline-block; margin-right:5px; flex-shrink:0; box-shadow:0 0 0 2px color-mix(in srgb, currentColor 12%, transparent); }
 .card-tile .actions{ display:flex; gap:6px; margin-top:auto; }
 
-/* ============ BOTONES ============ */
+
 .btn{
     border:none; border-radius:9px; padding:7px 10px; font-size:12px; font-weight:700; cursor:pointer;
     transition:filter .15s ease, transform .15s ease, box-shadow .15s ease; font-family:'Inter';
@@ -192,7 +225,7 @@ main{ flex:1; padding:30px 36px 60px; max-width:1200px; position:relative; z-ind
 .stepper button:active{ transform:scale(.92); }
 .stepper span{ min-width:18px; text-align:center; font-weight:700; font-size:13px; font-family:'JetBrains Mono',monospace; }
 
-/* ============ GROUPING / STATS ============ */
+
 .group{ margin-bottom:30px; animation:fadeIn .4s ease; }
 .group-header{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
 .group-header .swatch{ width:12px; height:12px; border-radius:3px; box-shadow:0 0 8px color-mix(in srgb, currentColor 40%, transparent); }
@@ -219,7 +252,7 @@ main{ flex:1; padding:30px 36px 60px; max-width:1200px; position:relative; z-ind
 }
 .empty-state h3{ color:var(--text); margin:0 0 6px; font-family:'Marcellus'; }
 
-/* ============ DECKS ============ */
+
 .deck-list{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; margin-bottom:26px; }
 .deck-card{
     background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:16px;
@@ -264,7 +297,15 @@ main{ flex:1; padding:30px 36px 60px; max-width:1200px; position:relative; z-ind
 .deck-row .rname{ font-size:12.5px; font-weight:600; flex:1; font-family:'Inter'; }
 .deck-row .rmeta{ font-size:10.5px; color:var(--text-dim); }
 
-/* ============ TOAST ============ */
+.pagination-row{
+    position:sticky; bottom:0;
+    display:flex; align-items:center; justify-content:center; gap:16px;
+    margin-top:24px; padding:14px 0; border-top:1px solid var(--border);
+    background:var(--bg-alt);
+    z-index:10;
+}
+.pagination-label{ font-size:12.5px; color:var(--text-dim); font-family:'JetBrains Mono',monospace; min-width:160px; text-align:center; }
+
 .toast{
     position:fixed; bottom:22px; right:22px; background:var(--panel-2); border:1px solid var(--gold-dim);
     color:var(--text); padding:11px 18px; border-radius:9px; font-size:13px; font-weight:600; font-family:'Inter';
@@ -286,7 +327,7 @@ select{
 ::-webkit-scrollbar-thumb{ background:var(--border); border-radius:6px; }
 ::-webkit-scrollbar-track{ background:transparent; }
 
-/* ============ ANIMATIONS ============ */
+
 @keyframes fadeInUp{
     from{ opacity:0; transform:translateY(10px); }
     to{ opacity:1; transform:translateY(0); }

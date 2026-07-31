@@ -62,7 +62,11 @@ function App() {
 
       <main id="main">
         {view === "search" && (
-          <CardSearchView onAddToStock={(card: Card) => addCard(card, 1)} getStockQty={getQty} />
+            <CardSearchView
+                onAddToStock={(card: Card) => addCard(card, 1)}
+                onRemoveFromStock={(card: Card) => addCard(card, -1)}
+                getStockQty={getQty}
+            />
         )}
 
         {view === "collection" && <CollectionView stock={stock} onChangeQty={addCard} />}

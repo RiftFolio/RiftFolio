@@ -14,7 +14,7 @@ export async function searchCards(query: string, setId?: string): Promise<Card[]
   }
 
   const data: Card[] = await res.json();
-  return data;
+  return data.items;
 }
 
 export async function getCardById(id: string): Promise<Card> {
@@ -41,5 +41,25 @@ export async function getCardsByName(fuzzy: string, setId?: string): Promise<Car
   }
 
   const data: Card[] = await res.json();
+  return data.items;
+}
+
+export async function getCardsBySet(setId: string, page: number, size: number): Promise<CardListResponse> {
+  const url = BASE_URL
+      + "/cards?set_id=" + encodeURIComponent(setId)
+      + "&page=" + page
+      + "&size=" + size
+      + "&sort=collector_number&dir=1";
+
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error("Error al obtener cartas del set " + setId + ": " + res.status);
+  }
+
+  const data: CardListResponse = await res.json();
   return data;
 }
+
+
+
+

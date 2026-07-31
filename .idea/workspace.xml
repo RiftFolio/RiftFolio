@@ -2,37 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18d758e7-487b-49cb-bd4f-a76d5fbe7320" name="Changes" comment="testing api">
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CardTile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/StockTile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useDecks.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useStock.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/riftcodexService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/card.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/types/collection.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/faction.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/CardDetails.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/CardSearchView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/CollectionView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/DeckBuilderView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/DecksView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/components/Card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/components/CardContainer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/services/riftcodexService.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/stylesheets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/types/card.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/CardDetails.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/views/CardSearchView.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardTile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardTile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/StockTile.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/riftcodexService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/riftcodexService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/faction.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/faction.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/CardSearchView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CardSearchView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/CollectionView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CollectionView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,21 +48,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Check-api",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sergi/IdeaProjects/RiftFolio",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2025.3.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Check-api&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sergi/IdeaProjects/RiftFolio&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2025.3.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sergi\IdeaProjects\RiftFolio" />

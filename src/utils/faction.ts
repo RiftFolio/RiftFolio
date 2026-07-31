@@ -7,6 +7,8 @@ const DOMAIN_COLORS: Record<string, string> = {
   chaos: "#8a8a95",
 };
 
+const DOMAIN_ORDER = ["fury", "calm", "mind", "body", "order", "chaos"];
+
 export function domainColor(name: string): string {
   if (!name) {
     return "#6b6680";
@@ -23,4 +25,10 @@ export function domainColor(name: string): string {
   }
   const hue = Math.abs(hash) % 360;
   return "hsl(" + hue + ", 55%, 58%)";
+}
+
+export function domainRank(name: string): number {
+  const key = name.toLowerCase().trim();
+  const index = DOMAIN_ORDER.indexOf(key);
+  return index === -1 ? DOMAIN_ORDER.length : index;
 }
