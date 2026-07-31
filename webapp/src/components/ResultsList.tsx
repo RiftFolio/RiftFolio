@@ -1,9 +1,12 @@
-function ResultList() {
+import Card from "./Card.tsx";
+
+function ResultsList({ cards }) {
     return (
         <div>
-            contenido aquí
+            {cards.map((card) => (
+                <Card key={card.id} name={card.name} image={card.image} price={card.price} domain={card.domain} set={card.set} />
+            ))}
         </div>
     );
 }
-
-export default ResultList;
+export default ResultsList;

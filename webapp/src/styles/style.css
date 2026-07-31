@@ -9,7 +9,7 @@ body {
 
 .search-bar {
     display: flex;
-    max-width: 1200px;
+    max-width: 1600px;
     width: 90%;
     margin: 4em auto 0;
     gap: 0.5em;
