@@ -1,10 +1,10 @@
 const DOMAIN_COLORS: Record<string, string> = {
   fury: "#e2543c",
-  calm: "#3ea8d8",
-  mind: "#a06be0",
-  body: "#4caf6b",
+  calm: "#4caf6b",
+  mind: "#3ea8d8",
+  body: "#e0862f",
   order: "#e8c368",
-  chaos: "#8a8a95",
+  chaos: "#a06be0",
 };
 
 const DOMAIN_ORDER = ["fury", "calm", "mind", "body", "order", "chaos"];

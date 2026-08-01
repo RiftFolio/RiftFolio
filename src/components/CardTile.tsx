@@ -11,8 +11,7 @@ interface CardTileProps {
 }
 
 function CardTile({ card, qty = 0, actionLabel, onAction, actionDisabled = false, onRemove }: CardTileProps) {
-  const domain = card.classification.domain[0] || "Sin dominio";
-  const color = domainColor(domain);
+  const domains = card.classification.domain.length > 0 ? card.classification.domain : ["Sin dominio"];
 
   function handleClick() {
     if (!actionDisabled) {
@@ -54,9 +53,11 @@ function CardTile({ card, qty = 0, actionLabel, onAction, actionDisabled = false
           <div className="info">
             <div className="name">{card.name}</div>
             <div className="meta">
-            <span>
-              <span className="color-dot" style={{ background: color }} />
-              {domain}
+            <span className="domain-list">
+              {domains.map((d) => (
+                  <span key={d} className="color-dot" style={{ background: domainColor(d) }} title={d} />
+              ))}
+              {domains.join(" / ")}
             </span>
               <span>{card.set.label}</span>
             </div>
