@@ -1,14 +1,22 @@
 import { ShoppingCart } from "lucide-react";
+import { domainColor } from "../utils/domains.ts";
 
-interface CardProps {
+export interface CardProps {
     name: string;
     image: string;
-    price: number;
     set: string;
-    domain: string;
+    domain: string | string[];
+    rarity: string;
+    collectorNumber: string | number;
 }
 
-function Card({ name, image, price, set, domain }: CardProps) {
+function capitalize(s: string) {
+    return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function Card({ name, image, set, domain, rarity, collectorNumber }: CardProps) {
+    const domains = Array.isArray(domain) ? domain : [domain];
+
     return (
         <div className="card">
             <div className="card-thumb">
@@ -27,8 +35,23 @@ function Card({ name, image, price, set, domain }: CardProps) {
 
             <div className="info">
                 <div className="name">{name}</div>
-                <div className="meta">{domain} · {set}</div>
-                <div className="meta">{price}€ </div>
+                <div className="meta">
+                    <span className="meta-left">
+                        {domains.map((d) => (
+                            <span
+                                key={d}
+                                className="color-dot"
+                                style={{ background: domainColor(d) }}
+                            />
+                        ))}
+                        {domains.map(capitalize).join(" / ")}
+                    </span>
+                    <span>{set}</span>
+                </div>
+                <div className="meta">
+                    <span>{rarity}</span>
+                    <span>#{collectorNumber}</span>
+                </div>
             </div>
         </div>
     );
