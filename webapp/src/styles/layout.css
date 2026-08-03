@@ -1,0 +1,55 @@
+/* ==========================================================================
+   layout.css
+   Solo el shell general de la página (sidebar + contenido).
+   El sidebar vive en sidebar.css, la topbar en topbar.css,
+   las cartas en cards.css.
+   ========================================================================== */
+
+:root{
+    --sidebar-w: 13em;
+    --sidebar-w-collapsed: 4.0em;
+    /* Espacio a la derecha para que el zoom de la última columna de cartas
+       no desborde el viewport. Se reduce en pantallas pequeñas, donde
+       el hover/zoom deja de tener sentido (no hay puntero). */
+    --content-gutter-right: clamp(1.5em, 6vw, 20em);
+
+}.app-shell{
+     display: flex;
+     align-items: stretch;
+     min-height: 100vh;
+     overflow-x: hidden;   /* <- corta cualquier desborde horizontal (p.ej. el zoom de cartas) */
+ }
+
+.main-content{
+    flex: 1;
+    min-width: 0;
+    padding: 1.5em 1.5em 3em 1.5em;
+    padding-right: var(--content-gutter-right); /* ahora sí se usa */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 1em;
+}
+
+
+.main-content > *{
+     grid-column: 1 / -2;
+
+ }
+
+
+
+@media (max-width: 900px){
+    :root{
+        --content-gutter-right: 2em;
+    }
+}
+
+@media (max-width: 600px){
+    .app-shell{
+        flex-direction: column;
+    }
+    .main-content{
+        /* padding-bottom extra para dejar sitio a la barra inferior del sidebar */
+        padding: 1em 1em 5em;
+    }
+}

@@ -4,4 +4,6 @@ export const mockData = [
     { id: 3, name: "Green Lillia ALT", image: "/lillia3.png", domain: "calm", price: 5, set: "Unleashed", rarity: "Epic", collectorNumber: "058a/219" },
     { id: 4, name: "Blue Lillia ALT", image: "/lillia4.png", domain: "mind", price: 5, set: "Unleashed", rarity: "Rare", collectorNumber: "082a/219" },
     { id: 5, name: "Green Lillia Champion", image: "/lillia5.png", domain: "calm", price: 5, set: "Unleashed", rarity: "Epic", collectorNumber: "058/219" },
+    { id: 6, name: "Green Lillia Champion", image: "/lillia5.png", domain: "calm", price: 5, set: "Unleashed", rarity: "Epic", collectorNumber: "058/219" },
+    { id: 6, name: "Green Lillia Champion", image: "/lillia5.png", domain: "calm", price: 5, set: "Unleashed", rarity: "Epic", collectorNumber: "058/219" },
 ];

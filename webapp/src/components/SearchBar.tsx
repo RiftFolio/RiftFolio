@@ -1,20 +1,10 @@
-import { useState } from 'react';
-import {Search} from "lucide-react";
-function SearchBar() {
-    const [query, setSearch] = useState('');
+import { Search } from "lucide-react";
 
-    function handleChange(event){
-        setSearch(event.target.value)
-    }
+function SearchBar() {
     return (
         <div className="search-bar">
-            <input
-                    type="text"
-                    value={query}
-                    onChange={handleChange}
-                    placeholder="Buscar..."
-                />
-            <button><Search size={16} /></button>
+            <Search className="search-icon" size={18} />
+            <input type="text" placeholder="Buscar..." />
         </div>
     );
 }
