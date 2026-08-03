@@ -1,8 +1,3 @@
-/* ==========================================================================
-   topbar.css
-   Buscador (independiente, no forma parte de un componente "Topbar"
-   reutilizable) + filtros.
-   ========================================================================== */
 
 .topbar{
     display: flex;
@@ -13,11 +8,11 @@
     margin: 1em 0 1.5em;
 }
 
-/* Mismo grid-template-columns que .card-grid (cards.css): así la primera
-   columna -donde vive el buscador- mide exactamente igual que cada carta
-   de la fila, incluida la última, en cualquier ancho de pantalla. */
 .search-bar-wrap{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 .search-bar{
     grid-column: 1;
@@ -26,6 +21,8 @@
     align-items: center;
     width: 100%;
 }
+
+
 
 .search-bar .search-icon{
     position: absolute;
