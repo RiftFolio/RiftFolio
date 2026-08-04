@@ -123,8 +123,6 @@
     background-color: var(--panel-bg);
 }
 
-/* ---------- Modo colapsado (solo iconos), vía botón hamburguesa ---------- */
-
 .sidebar.is-collapsed{
     flex-basis: var(--sidebar-w-collapsed);
     width: var(--sidebar-w-collapsed);
@@ -142,8 +140,6 @@
     padding: 0;
 }
 
-/* ---------- Tablet: colapsa automáticamente para ganar espacio ---------- */
-
 @media (max-width: 900px){
     .sidebar:not(.is-collapsed){
         flex-basis: var(--sidebar-w-collapsed);
@@ -160,8 +156,6 @@
         padding: 0;
     }
 }
-
-/* ---------- Móvil: barra inferior fija, solo iconos ---------- */
 
 @media (max-width: 600px){
     .sidebar{

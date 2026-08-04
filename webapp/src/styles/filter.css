@@ -12,9 +12,8 @@
     display: flex;
 }
 
-/* dale más espacio proporcional al filtro de coste, que tiene más contenido */
 .filter-box .cost-filter {
-    flex: 1.6 1 0;
+    flex: 1 1 0;
 }
 
 .filter {
@@ -135,14 +134,12 @@
     border-radius: var(--radius);
 }
 
-/* ---------- Cost filter ---------- */
-
 .cost-filter {
     width: 100%;
     box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
-    gap: 0.35em;
+    gap: 0.3em;
     background-color: var(--panel-bg);
     border: 1px solid var(--panel-bg-alt);
     border-radius: var(--radius-lg);
@@ -154,7 +151,7 @@
     display: flex;
     flex-wrap: nowrap;
     gap: 0.3em;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .cost-pill {
