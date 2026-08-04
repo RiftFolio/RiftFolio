@@ -13,18 +13,17 @@
 .sidebar-top{
     display: flex;
     align-items: center;
-    gap: 0.75em;
+    gap: 0.5em;          /* antes 0.75em */
     width: 100%;
+    min-width: 0;
 }
-
 .icon-btn{
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 2.6em;
-    height: 2.6em;
+    width: 2.2em;         /* antes 2.6em */
+    height: 2.2em;
     padding: 0;
     border: none;
     border-radius: var(--radius);
@@ -38,21 +37,23 @@
 }
 
 .sidebar-brand{
-
     font-family: 'Marcellus', serif;
-    font-size: 1.8em;
+    font-size: 1.4em;     /* antes 1.8em */
     color: var(--text);
     letter-spacing: 0.02em;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }
-
 .sidebar-nav{
     display: flex;
     flex-direction: column;
     gap: 0.35em;
     width: 100%;
 }
+
+
 
 .sidebar-item{
     display: flex;
@@ -85,6 +86,18 @@
 
 .sidebar-spacer{
     flex: 1;
+}
+
+.sidebar-logo {
+    width: 2.5em;
+    flex-shrink: 0;
+    border-radius: var(--radius);
+    object-fit: cover;
+    margin: -0.3em;
+}
+
+.sidebar.is-collapsed .sidebar-logo {
+    display: none;
 }
 
 .sidebar-user{

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, Search, Layers, BookOpen, UserCircle } from "lucide-react";
+import logo from "../assets/logo.png";
 
 function Sidebar() {
     const [collapsed, setCollapsed] = useState(false);
@@ -15,6 +16,7 @@ function Sidebar() {
                 >
                     <Menu size={20} />
                 </button>
+                <img src={logo} alt="RiftFolio" className="sidebar-logo" />
                 <span className="sidebar-brand">RiftFolio</span>
             </div>
 
