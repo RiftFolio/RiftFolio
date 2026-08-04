@@ -8,12 +8,17 @@
     padding: 1em 0.75em;
     background-color: var(--panel-bg-alt);
     transition: width 0.2s ease, flex-basis 0.2s ease;
+    position: fixed;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 50;
 }
-
 .sidebar-top{
     display: flex;
     align-items: center;
-    gap: 0.5em;          /* antes 0.75em */
+    gap: 0.5em;
     width: 100%;
     min-width: 0;
 }
@@ -22,7 +27,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 2.2em;         /* antes 2.6em */
+    width: 2.2em;
     height: 2.2em;
     padding: 0;
     border: none;
@@ -38,7 +43,7 @@
 
 .sidebar-brand{
     font-family: 'Marcellus', serif;
-    font-size: 1.4em;     /* antes 1.8em */
+    font-size: 1.4em;
     color: var(--text);
     letter-spacing: 0.02em;
     white-space: nowrap;
@@ -165,6 +170,7 @@
         bottom: 0;
         top: auto;
         width: 100%;
+        height: auto;
         flex: 0 0 auto;
         flex-direction: row;
         align-items: center;

@@ -4,16 +4,19 @@
     --sidebar-w-collapsed: 4.0em;
     --content-gutter-right: clamp(1.5em, 6vw, 20em);
 
-}.app-shell{
+}
+.app-shell{
      display: flex;
      align-items: stretch;
      min-height: 100vh;
      overflow-x: hidden;
- }
+}
 
 .main-content{
     flex: 1;
     min-width: 0;
+    margin-left: var(--sidebar-w);
+    transition: margin-left 0.2s ease;
     padding: 1.5em 1.5em 3em 1.5em;
     padding-right: var(--content-gutter-right);
     display: grid;
@@ -21,25 +24,24 @@
     gap: 1em;
 }
 
-
 .main-content > *{
      grid-column: 1 / -2;
 
  }
-
-
-
-@media (max-width: 900px){
-    :root{
-        --content-gutter-right: 2em;
-    }
+.sidebar.is-collapsed ~ .main-content{
+    margin-left: var(--sidebar-w-collapsed);
 }
+
 
 @media (max-width: 600px){
     .app-shell{
         flex-direction: column;
     }
     .main-content{
+        margin-left: 0;
         padding: 1em 1em 5em;
+    }
+    .sidebar.is-collapsed ~ .main-content{
+        margin-left: 0;
     }
 }
