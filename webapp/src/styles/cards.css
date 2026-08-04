@@ -3,9 +3,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
     gap: 1em;
-    max-width: 100rem;
-    width: 90%;
-    margin: 2em auto;
 }
 
 .card{
@@ -76,7 +73,7 @@
     position: absolute;
     top: 0;
     left: calc(100% + 0.8em);
-    width: 18em;
+    width: clamp(11em, 180%, 20em);
     pointer-events: none;
     opacity: 0;
     transform: translateX(-0.5em) scale(0.97);
@@ -208,6 +205,8 @@
 .card:hover .buy-band {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.15));
 }
+
+
 
 .card .info .meta{
     font-size: 0.7em;

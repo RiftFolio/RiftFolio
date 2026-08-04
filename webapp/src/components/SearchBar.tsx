@@ -10,7 +10,7 @@ function SearchBar({ onSearch }: SearchBarProps) {
     const [query, setQuery] = useState("");
     const debounceRef = useRef<number | undefined>(undefined);
 
-    // VALUE SO THE API DOESN'T OVERLOAD
+    // SETS A TIMER SO THE API DOESN'T OVERLOAD
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         const value = event.target.value;
         setQuery(value);
@@ -23,15 +23,11 @@ function SearchBar({ onSearch }: SearchBarProps) {
 
     return (
         <div className="search-bar">
-            <input
-                type="text"
-                value={query}
-                onChange={handleChange}
-                placeholder="Buscar..."
-            />
-            <button>
-                <Search size={16} />
-            </button>
+            <Search className="search-icon" size={18} />
+            <input type="text"
+                   value={query}
+                   onChange={handleChange}
+                   placeholder="Buscar..." />
         </div>
     );
 }
