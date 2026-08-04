@@ -10,7 +10,7 @@ function Sidebar() {
                 <button
                     className="icon-btn hamburger"
                     title="Menu"
-                    aria-label="Abrir/cerrar menú"
+                    aria-label="Open/Close menu"
                     onClick={() => setCollapsed((prev) => !prev)}
                 >
                     <Menu size={20} />
