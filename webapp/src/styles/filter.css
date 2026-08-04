@@ -1,7 +1,17 @@
-.filter {
+.filter-box {
     display: flex;
-    align-items: center;
+    align-items: stretch;   /* antes: flex-start */
+    width: 100%;
     gap: 0.7em;
+}
+.filter-box .filter,
+.filter-box .cost-filter {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;   /* para que el contenido interno también se estire */
+}
+
+.filter {
     font-family: 'Inter', serif;
     position: relative;
     z-index: 40;
@@ -19,8 +29,10 @@
 
 .filter-dropdown {
     position: relative;
-    width: 13rem;
+    width: 100%;
+    display: flex;
 }
+
 
 .filter-toggle {
     width: 100%;
@@ -37,6 +49,7 @@
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     transition: border-color 0.15s ease, background-color 0.15s ease;
+    box-sizing: border-box;
 }
 
 .filter-toggle-text {
@@ -82,7 +95,7 @@
     background-color: var(--panel-bg-alt);
     border: 1px solid var(--panel-bg);
     border-radius: var(--radius-lg);
-    max-height: 14rem;
+    max-height: 16rem;
     overflow-y: auto;
     box-shadow: 0 0.6em 1.5em rgba(0, 0, 0, 0.4);
 }
@@ -115,4 +128,50 @@
 .filter-list::-webkit-scrollbar-thumb {
     background-color: var(--accent);
     border-radius: var(--radius);
+}
+
+/* ---------- Cost filter ---------- */
+
+.cost-filter {
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;   /* centra verticalmente la fila de pills */
+    gap: 0.35em;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--panel-bg-alt);
+    border-radius: var(--radius-lg);
+    padding: 0.5em 1.1em;
+    font-family: 'Inter', serif;
+}
+
+.cost-filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
+}
+
+.cost-pill {
+    min-width: 2rem;
+    padding: 0.3em 0.6em;
+    border-radius: 999px;
+    border: 1px solid var(--panel-bg-alt);
+    background: transparent;
+    color: var(--text);
+    font-family: 'Inter', serif;
+    font-size: 0.8rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.cost-pill:hover {
+    background-color: var(--panel-bg-alt);
+}
+
+.cost-pill.active {
+    background-color: var(--accent);
+    color: var(--page-bg);
+    border-color: var(--accent);
+    font-weight: bold;
 }

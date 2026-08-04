@@ -2,16 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import "../styles/filter.css";
 
 type FilterProps = {
+    label: string;
     options: string[];
+    value: string | null;
+    onChange: (value: string | null) => void;
 };
 
-function Filter({ options }: FilterProps) {
+function Filter({ label, options, value, onChange }: FilterProps) {
     const [isOpen, setIsOpen] = useState(false);
-    const [active, setActive] = useState<string | null>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
-    const handleSelect = (tipo: string) => {
-        setActive(tipo);
+    const handleSelect = (opt: string) => {
+        onChange(opt);
         setIsOpen(false);
     };
 
@@ -34,21 +36,21 @@ function Filter({ options }: FilterProps) {
                     onClick={() => setIsOpen((prev) => !prev)}
                 >
                     <span className="filter-toggle-text">
-                        <span className="filter-label">Type</span>
-                        <span className="filter-value">{active ?? "None"}</span>
+                        <span className="filter-label">{label}</span>
+                        <span className="filter-value">{value ?? "None"}</span>
                     </span>
                     <span className={`filter-arrow ${isOpen ? "open" : ""}`}>▾</span>
                 </button>
 
                 {isOpen && (
                     <ul className="filter-list">
-                        {options.map((tipo) => (
+                        {options.map((opt) => (
                             <li
-                                key={tipo}
-                                className={`filter-item ${active === tipo ? "active" : ""}`}
-                                onClick={() => handleSelect(tipo)}
+                                key={opt}
+                                className={`filter-item ${value === opt ? "active" : ""}`}
+                                onClick={() => handleSelect(opt)}
                             >
-                                {tipo}
+                                {opt}
                             </li>
                         ))}
                     </ul>
