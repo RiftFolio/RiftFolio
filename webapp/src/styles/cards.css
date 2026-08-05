@@ -231,3 +231,38 @@
     border-radius: 50%;
     flex-shrink: 0;
 }
+
+
+
+.card-landscape .card-thumb img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140%;
+    height: 71.4%;
+    max-width: none;
+    transform: translate(-50%, -50%) rotate(90deg);
+    object-fit: cover;
+}
+
+.card-landscape .card-zoom{
+    aspect-ratio: 5 / 7;
+    width: 20em;
+}
+
+.card-landscape .card-zoom img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140%;
+    height: 71.4%;
+    max-width: none;
+    transform: translate(-50%, -50%) rotate(90deg);
+    object-fit: cover;
+}
+
+@media (max-width: 700px){
+    .card-landscape{
+        grid-column: span 1;
+    }
+}

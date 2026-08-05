@@ -1,77 +1,158 @@
 <div align="center">
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=160&section=header&text=RIFTFOLIO&fontSize=48&fontColor=6ec6ff&fontAlignY=40&desc=Your%20Riftbound%20Card%20Stock%2C%20Organized&descAlignY=62&descSize=17&descColor=8fd3ff&animation=fadeIn" width="100%"/>
 
-
 *Browse, sort, and manage your Riftbound card collection right from your browser.*
 
 <br/>
 
-![Node.js](https://img.shields.io/badge/Node.js-Required-1e3a5f?style=for-the-badge&logo=node.js&logoColor=6ec6ff)
-![Data](https://img.shields.io/badge/Data-riftscribe.gg-1e3a5f?style=for-the-badge&logo=databricks&logoColor=6ec6ff)
+![Java](https://img.shields.io/badge/Java-25-1e3a5f?style=for-the-badge\&logo=openjdk\&logoColor=6ec6ff)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-Backend-1e3a5f?style=for-the-badge\&logo=springboot\&logoColor=6ec6ff)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Docker-1e3a5f?style=for-the-badge\&logo=postgresql\&logoColor=6ec6ff)
 
 </div>
 
 ---
 
-## 🔷 About
+# 🔷 About
 
-**Rift Folio** is a local app for tracking your *Riftbound* card stock. It runs on a small Node.js server that acts as a bridge to the card API from [riftscribe.gg](https://riftscribe.gg).
+**Rift Folio** is a web application for managing your **Riftbound** card collection.
 
----
-
-## 👥 Collaborators
-
-| | Name | GitHub |
-|---|---|---|
-| 👩‍💻 | Clara Fernández Pérez | [@megu-hub](https://github.com/megu-hub) |
-| 👨‍💻 | Sergio Fernández-Miranda Longo | [@clubserg](https://github.com/clubserg) |
+The backend is built with **Spring Boot** and uses **PostgreSQL** running in **Docker** for local development.
 
 ---
 
-## 🗃️ File Structure
+# 👥 Collaborators
 
-> *Note: this is an early, minimal version — the structure will evolve. Still missing: a database, auth/security, and the UI will move from plain HTML to React.*
-
-```
-rift-folio/
-├── server.js         🔹 Local server
-└── public/
-    └── index.html    🔹 Full app (UI + logic)
-```
+|       | Name                           | GitHub                      |
+| ----- | ------------------------------ | --------------------------- |
+| 👩‍💻 | Clara Fernández Pérez          | https://github.com/megu-hub |
+| 👨‍💻 | Sergio Fernández-Miranda Longo | https://github.com/clubserg |
 
 ---
 
-## 📘 Requirements
+# 📘 Requirements
 
-| Requirement | Detail |
-|---|---|
-| 🔵 **Node.js** | Any recent version |
+Before running the project, make sure you have:
 
-Check whether you already have it installed by opening a terminal and running:
+| Requirement       | Detail                                                                |
+| ----------------- | --------------------------------------------------------------------- |
+| 🐳 Docker Desktop | Latest version                                                        |
+| ☕ Java 25         | Required for local development (if not running the backend in Docker) |
+
+Verify Docker is installed:
 
 ```bash
-node -v
+docker --version
+docker compose version
 ```
-
-If no version number shows up, download it for free from [nodejs.org](https://nodejs.org) (choose the **LTS** version).
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
-1. Open a terminal (or command prompt) in this folder — the one containing `server.js` and the `public/` folder.
-2. Run:
-   ```bash
-   node server.js
-   ```
-3. You should see a message like:
-   ```
-   Rift Vault running at http://localhost:3000
-   ```
-4. Open that address in your browser: **http://localhost:3000**
-5. To stop the app, go back to the terminal and press `Ctrl+C`.
+## 1. Clone the repository
 
-> 🔁 Every time you want to use the app again, just repeat steps 1–4.
+```bash
+git clone <repository-url>
+cd backend
+```
+
+---
+
+## 2. Create your environment file
+
+Copy:
+
+```text
+.env.example
+```
+
+to
+
+```text
+.env
+```
+
+and update the values if necessary.
+
+Example:
+
+```env
+DB_NAME=riftfolio
+DB_USERNAME=riftfolio_app
+DB_PASSWORD=your_password
+```
+
+---
+
+## 3. Start the application
+
+Build and start all services:
+
+```bash
+docker compose up --build
+```
+
+The first build may take a couple of minutes.
+
+After that, you can simply run:
+
+```bash
+docker compose up
+```
+
+---
+
+## 4. Stop the application
+
+```bash
+docker compose down
+```
+
+---
+
+# 🗄️ Database
+
+The PostgreSQL database runs inside Docker.
+
+To open a PostgreSQL shell:
+
+```bash
+docker exec -it riftfolio-db psql -U riftfolio_app -d riftfolio
+```
+
+Useful commands:
+
+```sql
+\dt      -- List tables
+\d table -- Describe a table
+\q       -- Exit
+```
+
+---
+
+# 📂 Project Structure
+
+```text
+backend/
+├── src/
+├── Dockerfile
+├── docker-compose.yml
+├── .env.example
+├── init.sql
+├── pom.xml
+└── README.md
+```
+
+---
+
+# 🔧 Development
+
+Whenever you make changes to the backend code, rebuild the application:
+
+```bash
+docker compose up --build
+```
 
 ---
 

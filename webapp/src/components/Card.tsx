@@ -8,17 +8,20 @@ export interface CardProps {
     domain: string | string[];
     rarity: string;
     collectorNumber: string | number;
+    orientation?: string;
+    onAdd?: () => void;
 }
 
 function capitalize(s: string) {
     return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-function Card({ name, image, set, domain, rarity, collectorNumber }: CardProps) {
+function Card({ name, image, set, domain, rarity, collectorNumber, orientation }: CardProps) {
     const domains = Array.isArray(domain) ? domain : [domain];
+    const isLandscape = orientation === "landscape";
 
     return (
-        <div className="card">
+        <div className={"card" + (isLandscape ? " card-landscape" : "")}>
             <div className="card-thumb">
                 <img src={image} alt={name} />
                 <div className="card-overlay">

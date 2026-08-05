@@ -9,18 +9,19 @@ export interface CardData {
     set: string;
     rarity: string;
     collectorNumber: string | number;
+    orientation: string;
 }
 
 export function mapCard(card: RiftCard): CardData {
-    const setLabel = card.set.set_id === "OPP" ? "Promo" : card.set.label;
     return {
         id: card.id,
         name: card.name,
         image: card.media.image_url,
         price: 0,
         domain: card.classification.domain,
-        set: setLabel,
+        set: card.set.label,
         rarity: card.classification.rarity,
         collectorNumber: card.collector_number,
+        orientation: card.orientation,
     };
 }

@@ -1,15 +1,5 @@
 import Card from "./Card.tsx";
-
-interface CardData {
-    id: string | number;
-    name: string;
-    image: string;
-    price: number;
-    domain: string | string[];
-    set: string;
-    rarity: string;
-    collectorNumber: string | number;
-}
+import type { CardData } from "../utils/mapCard.ts";
 
 interface ResultsListProps {
     cards: CardData[];
@@ -27,6 +17,7 @@ function ResultsList({ cards }: ResultsListProps) {
                     set={card.set}
                     rarity={card.rarity}
                     collectorNumber={card.collectorNumber}
+                    orientation={card.orientation}
                 />
             ))}
         </div>
