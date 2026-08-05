@@ -8,23 +8,27 @@
     padding: 1em 0.75em;
     background-color: var(--panel-bg-alt);
     transition: width 0.2s ease, flex-basis 0.2s ease;
+    position: fixed;
+    top: 0;
+    align-self: flex-start;
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 50;
 }
-
 .sidebar-top{
     display: flex;
     align-items: center;
-    gap: 0.75em;
+    gap: 0.5em;
     width: 100%;
+    min-width: 0;
 }
-
 .icon-btn{
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 2.6em;
-    height: 2.6em;
+    width: 2.2em;
+    height: 2.2em;
     padding: 0;
     border: none;
     border-radius: var(--radius);
@@ -38,21 +42,23 @@
 }
 
 .sidebar-brand{
-
     font-family: 'Marcellus', serif;
-    font-size: 1.8em;
+    font-size: 1.4em;
     color: var(--text);
     letter-spacing: 0.02em;
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }
-
 .sidebar-nav{
     display: flex;
     flex-direction: column;
     gap: 0.35em;
     width: 100%;
 }
+
+
 
 .sidebar-item{
     display: flex;
@@ -87,6 +93,18 @@
     flex: 1;
 }
 
+.sidebar-logo {
+    width: 2.5em;
+    flex-shrink: 0;
+    border-radius: var(--radius);
+    object-fit: cover;
+    margin: -0.3em;
+}
+
+.sidebar.is-collapsed .sidebar-logo {
+    display: none;
+}
+
 .sidebar-user{
     display: flex;
     align-items: center;
@@ -110,8 +128,6 @@
     background-color: var(--panel-bg);
 }
 
-/* ---------- Modo colapsado (solo iconos), vía botón hamburguesa ---------- */
-
 .sidebar.is-collapsed{
     flex-basis: var(--sidebar-w-collapsed);
     width: var(--sidebar-w-collapsed);
@@ -128,8 +144,6 @@
     justify-content: center;
     padding: 0;
 }
-
-/* ---------- Tablet: colapsa automáticamente para ganar espacio ---------- */
 
 @media (max-width: 900px){
     .sidebar:not(.is-collapsed){
@@ -148,8 +162,6 @@
     }
 }
 
-/* ---------- Móvil: barra inferior fija, solo iconos ---------- */
-
 @media (max-width: 600px){
     .sidebar{
         position: fixed;
@@ -158,6 +170,7 @@
         bottom: 0;
         top: auto;
         width: 100%;
+        height: auto;
         flex: 0 0 auto;
         flex-direction: row;
         align-items: center;

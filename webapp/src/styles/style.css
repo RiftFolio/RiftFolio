@@ -31,8 +31,6 @@ img{
     display: block;
 }
 
-/* ---------- Generic containers / text ---------- */
-
 .container, .card, section {
     background-color: var(--panel-bg);
 }
@@ -55,7 +53,6 @@ p {
     letter-spacing: 0.05em;
 }
 
-/* ---------- Inputs / buttons ---------- */
 
 input {
     font-family: 'Inter', sans-serif;
