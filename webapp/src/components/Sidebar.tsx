@@ -1,9 +1,22 @@
 import { useState } from "react";
-import { Menu, Search, Layers, BookOpen, UserCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Menu, Search, Layers, BookOpen, UserCircle, LogOut } from "lucide-react";
 import logo from "../assets/logo.png";
+import { useAuth } from "../context/AuthContext";
 
 function Sidebar() {
     const [collapsed, setCollapsed] = useState(false);
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+
+    function handleUserClick() {
+        if (user) {
+            logout();
+            navigate("/login");
+        } else {
+            navigate("/login");
+        }
+    }
 
     return (
         <aside className={`sidebar${collapsed ? " is-collapsed" : ""}`}>
@@ -37,9 +50,13 @@ function Sidebar() {
 
             <div className="sidebar-spacer" />
 
-            <button className="sidebar-user" title="Cuenta">
-                <UserCircle size={18} />
-                <span>Login</span>
+            <button
+                className="sidebar-user"
+                title={user ? "Cerrar sesión" : "Iniciar sesión"}
+                onClick={handleUserClick}
+            >
+                {user ? <LogOut size={18} /> : <UserCircle size={18} />}
+                <span>{user ? user.username : "Login"}</span>
             </button>
         </aside>
     );

@@ -4,7 +4,10 @@ import com.riftfolio.backend.model.StockEntry;
 import com.riftfolio.backend.model.User;
 import com.riftfolio.backend.repository.StockEntryRepository;
 import com.riftfolio.backend.repository.UserRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.UUID;
@@ -21,13 +24,23 @@ public class StockController {
         this.userRepository = userRepository;
     }
 
+    private void checkOwnership(UUID userId, Authentication authentication) {
+        UUID authenticatedUserId = (UUID) authentication.getPrincipal();
+        if (!authenticatedUserId.equals(userId)) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "No puedes acceder al stock de otro usuario");
+        }
+    }
+
     @GetMapping
-    public List<StockEntry> getStock(@PathVariable UUID userId) {
+    public List<StockEntry> getStock(@PathVariable UUID userId, Authentication authentication) {
+        checkOwnership(userId, authentication);
         return stockEntryRepository.findByUserId(userId);
     }
 
     @PostMapping
-    public StockEntry addCard(@PathVariable UUID userId, @RequestBody AddCardRequest request) {
+    public StockEntry addCard(@PathVariable UUID userId, @RequestBody AddCardRequest request, Authentication authentication) {
+        checkOwnership(userId, authentication);
+
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
