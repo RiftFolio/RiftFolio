@@ -1,6 +1,7 @@
 const DOMAIN_COLORS: Record<string, string> = {
     fury: "#e2543c",
     mind: "#3ea8d8",
+    body: "#e0863c",
     chaos: "#a06be0",
     calm: "#4caf6b",
     order: "#e8c368",

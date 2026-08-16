@@ -81,6 +81,7 @@ Example:
 DB_NAME=riftfolio
 DB_USERNAME=riftfolio_app
 DB_PASSWORD=your_password
+JWT_SECRET=a_long_random_string_at_least_32_characters
 ```
 
 ---
@@ -131,17 +132,48 @@ Useful commands:
 
 ---
 
+# 💻 Frontend
+
+The frontend lives in `webapp/` and is built with **React**, **TypeScript**, and **Vite**.
+
+## 1. Install dependencies
+
+```bash
+cd webapp
+npm install
+```
+
+## 2. Start the dev server
+
+```bash
+npm run dev
+```
+
+## 3. Open the app
+
+```text
+http://localhost:5173
+```
+
+The frontend expects the backend to be running at `http://localhost:8080`.
+
+---
+
 # 📂 Project Structure
 
 ```text
-backend/
-├── src/
-├── Dockerfile
-├── docker-compose.yml
-├── .env.example
-├── init.sql
-├── pom.xml
-└── README.md
+RiftFolio/
+├── backend/
+│   ├── src/
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── .env.example
+│   ├── init.sql
+│   └── pom.xml
+└── webapp/
+    ├── src/
+    ├── package.json
+    └── vite.config.ts
 ```
 
 ---
